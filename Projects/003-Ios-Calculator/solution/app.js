@@ -10,6 +10,7 @@ let nokta = true;
 console.log(sonuc);
 
 document.querySelector(".number-1").onclick = ()=>{
+    // ilk rakam 0 iken solda sifir olusmasin diye rakami direk girilen olarak al
     if (rakamlar == "0") {
         rakamlar = "1";
         display1.innerHTML = rakamlar;   
