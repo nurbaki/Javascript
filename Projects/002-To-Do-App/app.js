@@ -1,121 +1,75 @@
+let todos = JSON.parse(localStorage.getItem("todos")) ?? [];
+const todoUl = document.querySelector("#todo-ul");
+// ekranda yazan todo lar
+const todoInput = document.querySelector("#todo-input");
+const todoButton = document.querySelector("#todo-button");
 
-let liste = [];
-let uzunluk = 0;
-let tamamla = 0
-const listeUl = document.querySelector("#todo-ul");
-// ekranda yazan liste lar
-const listeInput = document.querySelector("#todo-input");
-const listeButton = document.querySelector("#todo-button");
 
-//? Add Buton is clicked.inputa veri girilip buton tıklandığında listes dizisine inputtaki value eklensin.
-// sonra bunu showlistes() fonk gidip sayesinde ekrana bastır
-
+//? Add Buton is clicked.inputa veri girilip buton tıklandığında todos dizisine inputtaki value eklensin.sonra bunu showTodos() fonk gidip sayesinde ekrana bastır
 document.querySelector("#todo-button").addEventListener("click", () => {
- 
-      if (!listeInput.value) {
-    alert("Please Enter your listes");
+  if (!todoInput.value) {
+    alert("Please Enter your todos");
   } else {
-    liste.push(listeInput.value);
-    console.log(liste);
-    showListe();
-    uzunluk += 1; 
-    document.querySelector("#toplam").innerHTML = uzunluk;
-    document.querySelector("#tamamlanan").innerHTML = tamamla;
+    todos.push(todoInput.value);
+    showTodos();
   }
 });
-
-const showListe = () => {
-  //! add e basıldığında hafızaya task eklenecek, ekrana basmak üzere buraya gelecek,
-  //  geldiğinde,localStorage deki verileri (ul listesinde bulunan, ekranda duran) 
-  //  baştan tekrar girmemesi için ul yi temizliyoruz
-  
-
-  listeUl.innerHTML += `
+const showTodos = () => {
+  // add e basıldığında hafızaya task eklenecek, ekrana basmak üzere buraya gelecek, geldiğinde,localStorage deki verileri (ul listesinde bulunan, ekranda duran) baştan tekrar girmemesi için ul nin ekrandaki görüntüsünü temizliyoruz
+   todoUl.textContent = "";
+  // localstorage daki verileri ekrana baştan yazdır
+  // başka türlü olmaz mesela girilenle aynısı todos ta yoksa yazdır desek, aynı şeyi girmek isteyebiliriz
+  todos.forEach((todo) => {
+    todoUl.innerHTML += `
     <li>
       <i class="fa fa-check fa-lg"> </i>
-      <p>${listeInput.value}</p>
+      <p>${todo}</p>
       <i class="fa fa-trash fa-lg"></i>
     </li>`;
+  });
+  createDeleteBtns();
+  createCheckBtns();
 
-  createSilButon();
-
-  createTikButon(); 
-
-
-  listeInput.value = "";
-
-  listeInput.focus();
+  localStorage.setItem("todos", JSON.stringify(todos));
+  todoInput.value = "";
+  todoInput.focus();
 };
 
-const createSilButon = () => {
+const createDeleteBtns = () => {
   // deleteBtns=nodelist=nesnedir, foreach olmaz
-  const silButon = document.querySelectorAll(".fa-trash");
-  silButon.forEach((sil) => {
-    sil.onclick = () => {
-      liste.splice(sil, 1);
-      //!bu listeden siler showListeyi çağırarak ekrana bastırırız
+  const deleteBtns = document.querySelectorAll(".fa-trash");
+  for (let i in deleteBtns) {
+    deleteBtns[i].onclick = () => {
+      todos.splice(i, 1);
 
-      //!alternatif yol showListeyi çağırmak  (ekrana hepsini tekrar bastırmak) yerine,
-      //  (çünkü bu yolla silince liste silinmiyor, siz ekrana listeyi bas deyince silinenler geri gelmiş oluyor)
-       // ekrandan direk silmek, ama listede hala durur
-      sil.parentNode.remove();
-      console.log(liste);
+      deleteBtns[i].parentNode.remove();
 
-      uzunluk = uzunluk -1 ; 
-      document.querySelector("#toplam").innerHTML = uzunluk;
-
-      if (sil.parentNode.classList.contains("checked")) {
-        tamamla = tamamla - 1;
-        document.querySelector("#tamamlanan").innerHTML = tamamla;
-     }
-
+      localStorage.setItem("todos", JSON.stringify(todos));
     };
-  });
+  }
 };
 
-createTikButon = () => {
-  const TikButon = document.querySelectorAll(".fa-check");
-  TikButon.forEach((Tik) => {
-    Tik.onclick = () => {
-      Tik.parentNode.classList.toggle("checked");
-
-      if (Tik.parentNode.classList.contains("checked")) {
-         tamamla = tamamla + 1;
-         document.querySelector("#tamamlanan").innerHTML = tamamla;
-
+const createCheckBtns = () => {
+  const checkBtns = document.querySelectorAll(".fa-check");
+  for (let i in checkBtns) {
+    checkBtns[i].onclick = () => {
+      if (checkBtns[i].parentElement.className.includes("checked")) {
+        //includes yerine eşittir desekte olur
+        checkBtns[i].parentElement.className = "";
       } else {
-        tamamla = tamamla - 1;
-        document.querySelector("#tamamlanan").innerHTML = tamamla;
-      } 
-   
+        checkBtns[i].parentElement.className = "checked";
+      }
     };
-  });
+  }
 };
 
 
 
 
+//? Enter button is pressed
+todoInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") todoButton.click();
+});
 
-// document.getElementById("MyElement").classList.add('MyClass');
-
-// document.getElementById("MyElement").classList.remove('MyClass');
-
-// if ( document.getElementById("MyElement").classList.contains('MyClass') )
-
-// And to toggle a class (remove if exists else add it):
-
-// document.getElementById("MyElement").classList.toggle('MyClass');
-
-
-
-
-// $('#MyElement').addClass('MyClass');
-
-// $('#MyElement').removeClass('MyClass');
-
-// if ( $('#MyElement').hasClass('MyClass') )
-// In addition, jQuery provides a shortcut for adding a class if it doesn't apply, or removing a class that does:
-
-// $('#MyElement').toggleClass('MyClass');
-          
-
+//? Start the app
+showTodos();
