@@ -5,7 +5,8 @@ const todoInput = document.querySelector("#todo-input");
 const todoButton = document.querySelector("#todo-button");
 
 
-//? Add Buton is clicked.inputa veri girilip buton tıklandığında todos dizisine inputtaki value eklensin.sonra bunu showTodos() fonk gidip sayesinde ekrana bastır
+//? Add Buton is clicked.inputa veri girilip buton tıklandığında todos dizisine inputtaki value eklensin.
+// sonra bunu showTodos() fonk gidip sayesinde ekrana bastır
 document.querySelector("#todo-button").addEventListener("click", () => {
   if (!todoInput.value) {
     alert("Please Enter your todos");

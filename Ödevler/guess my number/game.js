@@ -92,6 +92,10 @@ if (win) {
     }
 }
 
+// zaman eklemek icin
+// setTimeout(() => {
+//    
+// }, 1000)
 
 
 
