@@ -34,56 +34,39 @@
 
 //* Asenkron (setTimeout)
 //* ---------------------------------------------------------------
+//? callback hell
+// setTimeout(() => {
+//   console.log('matthew: SA Ferhat');
+//   setTimeout(() => {
+//     console.log('ferhat: SA Matthew');
+//     setTimeout(() => {
+//       console.log('Ahmet: kolay gelsin');
+//       setTimeout(() => {
+//         console.log('ferhat: buyrun nasıl yardımcı olurum');
+//       }, 2000);
+//     }, 2000);
+//   }, 2000);
+// }, 2000);
 
-// console.time('sto timer1');
+// console.log('ferhat: AS Matthew');
+// console.log('ferhat: nasıl gidiyor?');
+// setTimeout(() => {
+//   console.log('ferhat: dostum nasılsın?');
+// }, 0);
 
-// setTimeout(() =>{
-//     console.log("mathew: SA ferhat");
-//     console.timeEnd("sto timer1");
-// }, 0 );
+// console.log('Ahmet: kolay gelsin');
 
-// console.log("ferhat: AS Mathew");
-// console.log("ferhat: nasil gidiyor");
+//* Asenkron (setInterval, clearInterval)
+//*----------------------------------------------------------
+//? setInterval
 
-// setTimeout(() =>{
-//     console.log("ferhat: dostum nasilsin");
-// }, 0 );
-
-// console.log("Ahmet: Kolay gelsin");
-
-
-// //*-----------------------------------------
-
-// //? callback hell durumu, V seklinin cikmasi
-
-// setTimeout(() =>{
-//     console.log("mathew: SA ferhat");
-//     setTimeout(() =>{
-//         console.log("ferhat: SA mathew");
-//         console.log("ferhat: nasil gidiyor");
-//         setTimeout(() =>{
-//             console.log("Ahmet: kolay gelsin");
-//             setTimeout(() =>{
-//                 console.log("Ferhat: buyrun nasil yardimci olabilirim");
-//             }, 2000 );
-//         }, 2000 );
-//     }, 2000 );
-// }, 2000 );
-
-
-//? set interval
-
-console.log("counter started");
+console.log('counter started');
 
 let counter = 0;
 
 const interval1 = setInterval(() => {
-    console.log(++counter);
-    if (counter ===5) {
-        clearInterval(interval1);
-        
-    }  
+  console.log(++counter);
+  if (counter === 5) {
+    clearInterval(interval1);
+  }
 }, 1000);
-
-
-

@@ -10,7 +10,6 @@
 //? fetch() fonksiyonu veri getirmek istediginiz kaynagin yolunu gosteren zorunlu
 //? bir parametre almaktadir ve bu istegin cevabini gosteren bir Promise dondurmektedir.
 
-
 // const url = 'https://jsonplaceholder.typicode.com/users';
 
 // fetch(url)
@@ -45,7 +44,7 @@ fetch(url)
   })
   .then((data) => {
     // console.log(data);
-    // updateDOM(data);
+    updateDOM(data);
   })
   .catch((err) => {
     console.log(err);
