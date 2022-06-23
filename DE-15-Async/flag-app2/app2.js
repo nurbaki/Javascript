@@ -14,11 +14,12 @@ if (!res.ok) {
     throw new Error("Hata var");
 }
 
-// console.log(data);
+
 // ekranaBastir(await res.json());
 
 const data = await res.json();
 
+console.log(data);
 ekranaBastir(data[0]);
 
 };

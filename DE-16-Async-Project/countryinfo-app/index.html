@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>S17 - Flag APP</title>
+    <title>Country Information App</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -20,7 +20,9 @@
     />
   </head>
   <body>
-    <header class="text-center">
+    <header
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
       <div class="title">
         <img
           src="https://clarusway.com/wp-content/uploads/2021/06/CLARUSWAY_LOGO.png"
@@ -29,15 +31,30 @@
         />
       </div>
       <br />
-      <h1>JavaScript Plus <em class="fas fa-lg fa-angle-double-right"></em></h1>
-      <h2>S17 - Flag App</h2>
+      <h1>Country Information App</h1>
+      <h2>Welcome</h2>
+
+      <section class="m-2" style="width: 20rem">
+        <label for="DataList" class="form-label"
+          >Please enter 2-letter or 3-letter country code.</label
+        >
+        <input
+          class="form-control"
+          list="datalistOptions"
+          id="DataList"
+          placeholder="Type to search..."
+        />
+        <datalist id="datalistOptions"> </datalist>
+      </section>
+      <button type="button" class="btn btn-info m-2">Find</button>
     </header>
+
     <main class="container">
       <article
         class="countries d-flex flex-column align-items-center gap-4"
       ></article>
     </main>
 
-    <script src="app2.js"></script>
+    <script src="countryinfo-app.js"></script>
   </body>
 </html>
