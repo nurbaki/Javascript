@@ -88,3 +88,71 @@ const car = {
   
   
   });
+
+  //*======================================================
+//*   NEW GENERATION OPERATORS: SPREAD OR REST (...)
+//* ======================================================
+
+//? ------------------------------------------------------
+//?  REST =>>[...name]=diziden alınmayan, geri kalanları yeni bir (diziyse) diziye,(object se)object e atıyor
+//? ------------------------------------------------------
+//*Object
+
+const personel={
+  pName:"john",
+  surname:"smith",
+  job:"developer",
+  age:30,
+}
+const{pName,...gerisi}=personel;
+console.log(gerisi);
+const{...personelGerisi}=personel;
+
+
+const personelCopy=personel;
+
+
+console.log(personelGerisi, personelCopy,personel);
+
+personelGerisi.age=40;
+console.log(personelGerisi, personelCopy, personel);
+personelCopy.age=50;
+
+console.log(personelGerisi, personelCopy, personel);
+
+
+
+//* Array
+
+const esasNumber=[10,20,30,40]
+
+const siyamNumber=esasNumber;
+
+
+
+const[...esasCopy]=esasNumber;
+
+esasCopy.push(999);
+console.log(esasNumber, esasCopy, siyamNumber);
+
+siyamNumber.unshift(222)
+
+console.log(esasNumber, esasCopy, siyamNumber);
+
+// esasNumber=[222, 10, 20, 30, 40];
+const[bir,iki,...digerNumber]=esasNumber;
+console.log(digerNumber);
+console.log(bir,iki);
+
+
+
+
+
+
+
+
+
+
+
+
+
