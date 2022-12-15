@@ -27,6 +27,7 @@ const konus = document.querySelector(".btn-outline-danger");
 konus.onclick=()=>{
     foto.src="img/telefon.gif";
     sound.pause();
+    
 }
 
 const ara = document.querySelector(".btn-outline-warning");
