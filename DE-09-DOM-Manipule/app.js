@@ -3,8 +3,9 @@
 
 const Title = document.querySelector("h1");
 
-Title.style.color="red";
+Title.style.color="Blue";
 Title.style.textAlign="center";
+Title.style.marginTop="20px";
 
 const foto= document.querySelector("img");
 
@@ -13,6 +14,16 @@ foto.onmouseover=()=>{
 }
 foto.onmouseout=()=>{
     foto.src="img/aslan2.jpeg";
+}
+
+const ara = document.querySelector(".btn-outline-warning");
+const sound = document.querySelector(".ses");
+
+ara.onclick=()=>{
+    foto.src="img/img.gif";
+    // sound.load(); sayfa yuklendiginde hazir olsun anlaminda load. suan gerek yok
+    sound.volume=0.2;
+    sound.play();
 }
 
 const baglat = document.querySelector(".btn-outline-primary");
@@ -30,17 +41,6 @@ konus.onclick=()=>{
     
 }
 
-const ara = document.querySelector(".btn-outline-warning");
-
-const sound = document.querySelector(".ses");
-
-ara.onclick=()=>{
-    foto.src="img/img.gif";
-    // sound.load(); sayfa yuklendiginde hazir olsun anlaminda load. suan gerek yok
-    sound.volume=0.2;
-    sound.play();
-}
-
 // 2.Yol
 // resim.addEventListener("mouseout", () => {
 //     resim.src = "./img/aslan2.jpeg";
@@ -48,6 +48,14 @@ ara.onclick=()=>{
 
 const check= document.querySelector(".checkbox");
 const text = document.querySelector(".textbox");
+
+check.onclick=()=>{
+    if(check.checked){
+        text.value =text.value.toUpperCase();
+    }else{
+        text.value =text.value.toLowerCase();
+    }
+}
 
 text.onkeyup=()=>{
     if(check.checked){
