@@ -9,11 +9,23 @@ Title.style.marginTop="20px";
 
 const foto= document.querySelector("img");
 
+var lion = 0;
+
 foto.onmouseover=()=>{
     foto.src="img/aslan1.jpeg";
+    lion=1;
 }
 foto.onmouseout=()=>{
-    foto.src="img/aslan2.jpeg";
+    if (lion == 1) {
+        foto.src="img/aslan2.jpeg";
+    }
+    
+}
+
+foto.onclick=()=>{
+    foto.src="img/img2.jpg";
+    sound.pause();
+    lion=0;
 }
 
 const ara = document.querySelector(".btn-outline-warning");
@@ -46,6 +58,9 @@ konus.onclick=()=>{
 //     resim.src = "./img/aslan2.jpeg";
 //   });
 
+
+// ************ 2. Section **************
+
 const check= document.querySelector(".checkbox");
 const text = document.querySelector(".textbox");
 
@@ -65,16 +80,25 @@ text.onkeyup=()=>{
     }
 }
 
+
+
+// ***************** 3. Section ***********************
+
 //*ekle butonuna basıldığında inputa girilen değerler benim ul listeme eklensin
 
+const liste = document.querySelector(".liste");
+const language = document.querySelector(".language");
+
 document.querySelector(".ekle").onclick=()=>{
-    const liste = document.querySelector(".liste");
-    const language = document.querySelector(".language");
+
+    if (language.value != "") {
+        liste.innerHTML = liste.innerHTML + `<li>${language.value} </li>`;
   
-    liste.innerHTML = liste.innerHTML + `<li>${language.value} </li>`;
+        //*input girişi yapılıp eleman üstte listeye eklendikten sonra input temizlensin
+        language.value = "";        
+    }
   
-    //*input girişi yapılıp eleman üstte listeye eklendikten sonra input temizlensin
-    language.value = "";
+
   
 
 
@@ -94,11 +118,12 @@ document.querySelector(".ekle").onclick=()=>{
   //*sil butonu tıklandığında
   
   document.querySelector(".sil").onclick = ()=>{
-  const liste = document.querySelector(".liste");
+  //const liste = document.querySelector(".liste");
   
-  liste.removeChild(liste.lastElementChild);//*listenin son elemanını sil
-  // liste.removeChild(liste.firstElementChild);//*listenin ilk elemanını sil
-  
+    if (liste.lastElementChild != liste.firstElementChild) {
+         liste.removeChild(liste.lastElementChild);//*listenin son elemanını sil
+        //liste.removeChild(liste.firstElementChild);//*listenin ilk elemanını sil   
+    }
   }
 
 document.querySelector(".language").onkeydown=(tuslar)=>{
@@ -119,7 +144,7 @@ document.querySelector(".language").onkeydown=(tuslar)=>{
 //!listemin başına h1 tag i eklemek
 
 // HTML'de input-div'in altına yeni bir H1 elemanı olusturalım.
-const liste = document.querySelector(".liste"); //h1 eklemek için class=input-div yerine class=forH1 yapabilirsin
+//const liste = document.querySelector(".liste"); //h1 eklemek için class=input-div yerine class=forH1 yapabilirsin
 // const h1 = document.createElement("h1");
 // const yazi = document.createTextNode("Programlama Dilleri");
 // h1.appendChild(yazi);
@@ -128,3 +153,5 @@ const liste = document.querySelector(".liste"); //h1 eklemek için class=input-d
 //!kısa yol
 
 liste.innerHTML = `<h1> ${"Programlama Dilleri"}</h1>` +liste.innerHTML;
+
+document.querySelector(".input-div").innerHTML = `<h1 class="text-danger"> ${"Upper / Lower Box"}</h1>` +document.querySelector(".input-div").innerHTML;

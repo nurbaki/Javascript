@@ -16,8 +16,9 @@
   </head>
 
   <body>
-    <h1>Ornekler</h1>
-    <main>
+    <h1>Örnekler</h1>
+    <main class="d-flex justify-content-center">
+    <div class="foto-div m-5">
       <img class="resim" src="img/img2.jpg" alt="off" />
       <div class="mt-4">
         <audio
@@ -31,12 +32,16 @@
         <button class="btn off btn-outline-primary">Bağlat</button>
         <button class="btn speak btn-outline-danger">Konuş</button>
       </div>
-      <div class="input-div">
+    </div>
+      
+    <div class="input-div m-5">
         <label for="textbox">Bir seyler yaziniz;</label><br>
         <input class="textbox mt-1 mb-1" type="text" value="" /><br>
         <label for="checkbox">Küçük/Büyük</label>
         <input class="checkbox" type="checkbox" />
-      </div>
+    </div>
+
+    <div class="list-div">
 
       <ul class="liste text-start">
         <li>javascript</li>
@@ -47,13 +52,14 @@
       </ul>
 
       <div
-        class="<!--!yazıları text-start sola alma--> <!-- butonları, dikeyde hizalayarak aynı hizada gösterdi--> d-flex"
-      >
+        class="d-flex"> 
+        <!--!yazıları text-start sola alma--> <!-- butonları, dikeyde hizalayarak aynı hizada gösterdi--> 
         <!--me-1 butonların sonuna boşluk sağladı-->
         <input class="language me-1" type="text" />
         <button class="btn ekle btn-success me-1">Ekle</button>
         <button class="btn sil btn-danger">Sil</button>
       </div>
+    </div>
     </main>
 
     <script src="app.js"></script>
