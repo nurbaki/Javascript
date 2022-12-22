@@ -30,6 +30,7 @@ const getUsers = async () => {
     }
     const data = await response.json();
     updateDOM(data);
+    console.log(data);
   } catch (error) {
     updateDOM(null, false);
     console.log(error);

@@ -15,14 +15,14 @@
 // fetch(url)
 //   .then((response) => {
 //     //? response ise fetch() fonksiyonunun cevabini gosteren bir objedir.
-//     // console.log(response);
+     // console.log(response);
 //     if (!response.ok) {
 //       throw new Error(`Network response was not ok. Status: ${response.status}`);
 //     }
 //     return response.json();
 //   })
 //   .then((data) => {
-//     // console.log(data);
+  // console.log(data);
 //     data.forEach((element) => {
 //       console.log(`${element.name} ${element.username}
 //        ${element.email}`);
